@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldTech - Eletrônicos e Acessórios</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.jpeg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="img/logo.jpeg" alt="worldTech Logo">
+            </a>
+
+            <nav class="nav" id="nav">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#produtos" class="nav-link">Produtos</a>
+                <a href="#categorias" class="nav-link">Categorias</a>
+                <a href="#ofertas" class="nav-link">Ofertas</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box" id="search-box">
+                    <input type="text" placeholder="Buscar produtos..." id="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="icon-btn" id="search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn cart-btn" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Meu Carrinho</h3>
+            <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty" id="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Seu carrinho está vazio</p>
+                <span>Adicione produtos para começar!</span>
+            </div>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display:none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total-value">R$ 0,00</strong>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkout-btn">
+                <i class="fas fa-lock"></i> Finalizar Compra
+            </button>
+            <button class="btn btn-outline btn-block" id="clear-cart-btn">
+                <i class="fas fa-trash"></i> Limpar Carrinho
+            </button>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">🔥 Novidades em Tech</span>
+                <h1 class="hero-title">
+                    O Futuro da <span class="gradient-text">Tecnologia</span> está aqui
+                </h1>
+                <p class="hero-subtitle">
+                    Descubra os melhores eletrônicos e acessórios com preços imperdíveis. 
+                    Qualidade garantida e entrega rápida para todo o Brasil.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#produtos" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-bag"></i> Ver Produtos
+                    </a>
+                    <a href="#ofertas" class="btn btn-glass btn-lg">
+                        <i class="fas fa-fire"></i> Ofertas do Dia
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>500+</strong>
+                        <span>Produtos</span>
+                    </div>
+                    <div class="stat">
+                        <strong>10k+</strong>
+                        <span>Clientes</span>
+                    </div>
+                    <div class="stat">
+                        <strong>4.9★</strong>
+                        <span>Avaliação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-3d">
+                    <div class="floating-product">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop" alt="Smartphone">
+                    </div>
+                    <div class="glow-ring"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Role para baixo</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Navegue por</span>
+                <h2 class="section-title">Categorias</h2>
+                <p class="section-subtitle">Encontre exatamente o que você procura</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" data-category="smartphones">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Smartphones</h3>
+                    <p>120+ produtos</p>
+                </div>
+                <div class="category-card" data-category="notebooks">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Notebooks</h3>
+                    <p>85+ produtos</p>
+                </div>
+                <div class="category-card" data-category="fones">
+                    <div class="category-icon">
+                        <i class="fas fa-headphones-alt"></i>
+                    </div>
+                    <h3>Fones</h3>
+                    <p>200+ produtos</p>
+                </div>
+                <div class="category-card" data-category="acessorios">
+                    <div class="category-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>Acessórios</h3>
+                    <p>300+ produtos</p>
+                </div>
+                <div class="category-card" data-category="smartwatch">
+                    <div class="category-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Smartwatches</h3>
+                    <p>60+ produtos</p>
+                </div>
+                <div class="category-card" data-category="cameras">
+                    <div class="category-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Câmeras</h3>
+                    <p>45+ produtos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="produtos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nossos</span>
+                <h2 class="section-title">Produtos em Destaque</h2>
+                <p class="section-subtitle">Os mais vendidos e bem avaliados</p>
+            </div>
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="smartphones">Smartphones</button>
+                <button class="filter-btn" data-filter="notebooks">Notebooks</button>
+                <button class="filter-btn" data-filter="fones">Fones</button>
+                <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers / Banner -->
+    <section class="promo-banner" id="ofertas">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <span class="promo-badge">⚡ Oferta Limitada</span>
+                    <h2>Mega Promoção <span class="gradient-text">Tech Week</span></h2>
+                    <p>Até <strong>50% OFF</strong> em produtos selecionados. Aproveite antes que acabe!</p>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Dias</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Min</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Seg</span>
+                        </div>
+                    </div>
+                    <a href="#produtos" class="btn btn-primary btn-lg">
+                        <i class="fas fa-bolt"></i> Aproveitar Agora
+                    </a>
+                </div>
+                <div class="promo-visual">
+                    <div class="promo-3d-card">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Promoção">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Frete Grátis</h3>
+                    <p>Para compras acima de R$ 199</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compra Segura</h3>
+                    <p>Proteção total nos pagamentos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Devolução Fácil</h3>
+                    <p>30 dias para trocar ou devolver</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte 24/7</h3>
+                    <p>Atendimento a qualquer hora</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter / Contact -->
+    <section class="newsletter" id="contato">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Fique por dentro das <span class="gradient-text">novidades</span></h2>
+                    <p>Cadastre-se e receba ofertas exclusivas diretamente no seu e-mail!</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Cadastrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="img/logo.jpeg" alt="worldTech" class="footer-logo">
+                    <p>Sua loja de eletrônicos e acessórios com os melhores preços e qualidade garantida.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/worldtech_bv?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <a href="#home">Início</a>
+                    <a href="#produtos">Produtos</a>
+                    <a href="#categorias">Categorias</a>
+                    <a href="#ofertas">Ofertas</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte</h4>
+                    <a href="#">Central de Ajuda</a>
+                    <a href="#">Política de Troca</a>
+                    <a href="#">Rastrear Pedido</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i>(95)99130-9828</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Boa Vista, RR</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 worldTech - Desenvolvido pela LV Consultoria</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-pix"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

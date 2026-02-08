@@ -37,7 +37,7 @@ worldtech/
 ├── js/
 │   └── app.js
 ├── img/
-│   └── logo.jpeg
+│   └── logo.png
 └── README.md
 ```
 
